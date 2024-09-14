@@ -1,0 +1,48 @@
+///////////////////////////////////////////////////////////////////////////
+                               Reflection
+                               Milestone 3
+Course: IPC 144
+Section: NDD
+Full Name  : Hyerin Mun
+Student ID#: 121694236
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+1. 
+void sort(struct Appointment appoints[], int max);
+
+The sort function is designed to sort an array of Appointment structures based on their date and time values. Sorting appointments is crucial for efficient management and retrieval of scheduled appointments. It employs a bubble sort algorithm to arrange appointments in ascending order of time. The function first converts the date and time components of each appointment into total minutes for easy comparison during the sorting process. The function iterates through the array and converts the date and time components to total minutes. It then uses a nested loop to perform the bubble sort, comparing the total minutes of adjacent appointments and swapping them if they are out of order. After the sorting is complete, the function converts the total minutes back to the original date and time format for each appointment.
+
+int timeSlotAvailable(struct Date date, struct Time time, struct Appointment* app, int maxAppointments);
+
+The timeSlotAvailable function checks whether a specific date and time slot is available in an array of appointments. It examines the existing appointments to determine if there is any overlap with the given date and time. It iterates through the array of appointments and compares the provided date and time with each existing appointment. If it finds an appointment that matches the given date and time, it sets the availableSlot flag to 0, indicating that the slot is not available. If no matching appointment is found, the function returns 1, indicating that the slot is available.
+
+int nextSlotAvailable(struct Appointment* app, int maxAppointments);
+
+The purpose of this function is to find the index of the next available slot for scheduling an appointment in the given array of appointments. It iterates through the array to locate the first slot where the patient number is less than 1, indicating an empty slot available for scheduling. It initializes variables i and availability and enters a while loop that continues as long as availability is assigned the value 0 and i is less than the maximum number of appointments (max). Within the loop, the function checks if the patient number of the appointment at index i is less than 1. If true, it means the slot is available because patient numbers are typically positive, and a value less than 1 suggests an empty slot. In such a case, it sets availability to 1, indicating that an available slot has been found, and exits the loop. The function then returns the value of i, which represents the index of the next available slot in the array of appointments.
+
+int validAppointment(int patientNumber, struct Date date, struct Appointment* app, int maxAppointments);
+
+This function is responsible for determining the index of a specific appointment based on the given patient number, date, and time. Initialized with variables i and flag set to 0, the function enters a while loop, persisting until it either finds a matching appointment or exhausts the array. Inside the loop, it compares the patient number, day, month, and year of each appointment with the provided parameters. Upon finding a match, the function sets flag to 1, signaling the discovery, and exits the loop. The final return value is i - 1, indicating the index of the located appointment or -1 if the appointment is not present in the array. This function enhances the application's capability to manage and verify appointments efficiently, contributing to the overall reliability and functionality of the system.
+
+2. 
+
+Minimizing the number of scanf calls in the client.c source code file is a deliberate decision that aligns with best practices in software development. This strategy primarily aims to enhance the robustness of input validation by consolidating user input handling at specific points in the code. By doing so, the risk of errors related to user input is reduced, as each scanf call can be carefully managed and validated independently. This approach also contributes to improved code readability and maintainability, as developers can easily locate and understand the sections responsible for user input. Moreover, the minimized use of scanf simplifies the debugging process, allowing developers to focus on specific input prompts when identifying and resolving issues. From a user experience perspective, concentrating input requests at key moments promotes a more controlled and user-friendly interaction, avoiding unnecessary confusion. In summary, the decision to significantly minimize scanf calls is a strategic choice that fosters efficiency, clarity, and a positive overall user experience in the application.
+
+3.
+Function: sort
+The "sort" function is placed under utlity functions in clinic module (clinic. C). 
+Since the sorting logic is more generic and could be utilized in various parts of the program, placing it in a "Utility" function in clinic module. Also, it is mostly used for appointment data so I think it should be in clinic module to enhance reusability. The decision hinges on factors like modularity, reusability, function cohesion, project size, and maintainability, tailored to the specific needs and organization of the program.
+
+Function: timeSlotAvailable
+It is placed in a module related to appointment scheduling under utility functions in clinic module (clinic.c). The function checks whether a given time slot is available for scheduling an appointment by comparing the provided date and time with existing appointments. Placing it in a module focused on appointments helps maintain a clean and organized code structure, separating concerns related to appointments from other parts of the program.
+
+Function: nextSlotAvailable
+This function is also under utility functions in clinic module (clinic.c). The function is concerned with finding the next available slot in the schedule. Placing it in the same module as timeSlotAvailable ensures that all functions related to appointment scheduling are grouped together, promoting modular design and improving code organization. It allows for easier maintenance and updates related to appointments.
+
+Function: validAppointment
+Similar to the previous functions, this one would likely be placed in the utility function in clinic module.
+This function checks the validity of a given appointment based on patient number and date. By placing it in the same module as the other appointment-related functions, the code structure remains cohesive and modular. Functions dealing with appointments are grouped together, simplifying development and maintenance tasks associated with this aspect of the program.

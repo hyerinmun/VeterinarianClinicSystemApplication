@@ -1,0 +1,7 @@
+﻿  a1ms3.c
+  clinic.c
+C:\Users\Hyerin\OneDrive\Documents\Seneca College\Seneca_Fall2023\IPC144\IPC144_A1\MS3\clinic.c(373,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  core.c
+C:\Users\Hyerin\OneDrive\Documents\Seneca College\Seneca_Fall2023\IPC144\IPC144_A1\MS3\core.c(64,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  a1ms3.vcxproj -> C:\Users\Hyerin\OneDrive\Documents\Seneca College\Seneca_Fall2023\IPC144\IPC144_A1\MS3\x64\Debug\a1ms3.exe
